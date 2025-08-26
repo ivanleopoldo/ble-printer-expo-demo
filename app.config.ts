@@ -5,7 +5,7 @@ const EAS_PROJECT_ID = '66f6cdc0-69d4-4642-af6d-1c3f34bfdc2d';
 const PROJECT_SLUG = 'ble-printer-expo-demo';
 const OWNER = 'ivaintwc';
 
-const APP_NAME = 'BLEPrinter Demo';
+const APP_NAME = 'Printer';
 const BUNDLE_IDENTIFIER = 'com.ivaintwc.bleprinterexpodemo';
 const PACKAGE_NAME = 'com.ivaintwc.bleprinterexpodemo';
 const ICON = './assets/icon.png';
@@ -64,6 +64,9 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     ios: {
       supportsTablet: true,
       bundleIdentifier: bundleIdentifier,
+      infoPlist: {
+        ITSAppUsesNonExemptEncryption: false,
+      },
     },
     android: {
       adaptiveIcon: {
@@ -96,7 +99,7 @@ export const getDynamicAppConfig = (environment: 'development' | 'preview' | 'pr
 
   if (environment === 'preview') {
     return {
-      name: `${APP_NAME} Preview`,
+      name: `${APP_NAME} (Preview)`,
       bundleIdentifier: `${BUNDLE_IDENTIFIER}.preview`,
       packageName: `${PACKAGE_NAME}.preview`,
       icon: ICON,
@@ -106,7 +109,7 @@ export const getDynamicAppConfig = (environment: 'development' | 'preview' | 'pr
   }
 
   return {
-    name: `${APP_NAME} Development`,
+    name: `${APP_NAME} (Dev)`,
     bundleIdentifier: `${BUNDLE_IDENTIFIER}.dev`,
     packageName: `${PACKAGE_NAME}.dev`,
     icon: ICON,
