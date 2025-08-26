@@ -38,6 +38,15 @@ export default ({ config }: ConfigContext): ExpoConfig => {
         },
       ],
       'expo-web-browser',
+      [
+        'react-native-ble-manager',
+        {
+          isBleRequired: true,
+          neverForLocation: true,
+          companionDeviceEnabled: false,
+          bluetoothAlwaysPermission: 'Allow BLE DEMO APP to connect to bluetooth devices',
+        },
+      ],
     ],
     experiments: {
       typedRoutes: true,
